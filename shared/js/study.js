@@ -5,5 +5,8 @@ $(function() {
 	
 	$(".box").hover(function(){
 		$(this).css("border","1px solid #000");
+	},
+	function(){
+		$(this).css("border","none");
 	});
 });
