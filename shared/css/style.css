@@ -109,28 +109,3 @@ p, li, dt, dd {
 input, textarea {
 	font-family: "ＭＳ Ｐゴシック", "MS PGothic", Osaka;
 }
-
-/*---------------------------
- * 
- *---------------------------*/
-#box1 {
-	background:rgba(0,0,0,0.5);
-	border:1px solid #f99;
-}
-#bg-sample1 {
-	background: url(../images/bg_sample1.png) repeat-x left top;
-	height:200px;
-}
-#bg-sample2 {
-	background:url(../images/bg_sample1.png) repeat-x left top;
-}
-#bg-sample2-inner {
-	background:url(../images/bg_sample2.png) repeat-x left top;
-	height:300px;
-}
-#btn-sample1 {
-	background:#999;
-	width:100px;
-	height:100px;
-	border:1px solid #333;
-}

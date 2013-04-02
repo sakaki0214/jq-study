@@ -1,0 +1,157 @@
+<!DOCTYPE HTML>
+<html lang="ja" xmlns:og="http://ogp.me/ns#" xmlns:mixi="http://mixi-platform.com/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<meta charset="utf-8" />
+<title>STUDY</title>
+
+<link rel="shortcut icon" href="sahred/images/favicon.ico" />
+<link rel="stylesheet" href="shared/css/style.css" media="all" />
+
+<script src="shared/js/jquery-1.9.1.min.js"></script>
+<script>
+$(function(){
+	var btnl = $("#btn-l");
+	var btnr = $("#btn-r");
+	var btnShow = $("#btn-show");
+	var box = $("#box1");
+	var box2 = $("#box2");
+	var box3 = $("#box3");
+	var hideTx = $("#hide");
+	var ani = $("#btn-ani");
+	var btnToggle = $("#toggle button");
+	var contentsToggle = $("#toggle p");
+	var btnToggle2 = $("#toggle2 button");
+	var contentsToggle2 = $("#toggle2 p");
+	var btnSlide = $("#slide");
+	var contentsSlide = $("#slide-contents");
+	var btnSlide2 = $("#slide2");
+	var contentsSlide2 = $("#slide-contents2");
+
+	btnl.click(function(){
+			box.animate({"left":"-=100px"},"slow");
+	});
+		btnr.click(function(){
+				box.animate({"left":"+=100px"},"fast");
+		});
+		ani.click(function(){
+				box2.animate({height:"toggle",opacity:"toggle",width:"toggle"},600);
+		});
+		btnShow.click(function(){
+			box3.show("600000000");
+		});
+		hideTx.click(function(){
+			hideTx.hide("1000000");
+		});
+		btnToggle.click(function(){
+			contentsToggle.toggle();
+		});
+		btnToggle2.click(function(){
+			contentsToggle2.toggle("slow");
+		});
+//		btnSlide.click(function(){
+//			contentsSlide.slideDown("slow");
+//		});
+		btnSlide.click(function(){
+			if(contentsSlide.is(":hidden")){
+				contentsSlide.slideDown("fast");
+			}else {
+				contentsSlide.slideUp("slow");
+			}
+		});
+		btnSlide2.click(function(){
+			contentsSlide2.slideToggle(3000);
+		});
+});
+</script>
+
+<style type="text/css">
+#box1 {
+	position:absolute;
+	top:50px;
+	left:50px;
+	background:#ccc;
+	width:50px;
+	height:50px;
+}
+#box2 {
+	position:absolute;
+	top:150px;
+	left:50px;
+	background:#9cf;
+	width:50px;
+	height:50px;
+}
+#box3 {
+	display:none;
+	margin:200px 0 0;
+	background:#CCF;
+	width:50px;
+	height:50px;
+}
+#hide {
+	background:#ccc;
+	width:800px;
+	height:30px;
+}
+#slide-contents {
+	display:none;
+	background:#CCF;
+	width:50px;
+	height:50px;
+}
+#slide-contents2 {
+	display:none;
+	background:#CCF;
+	width:400px;
+}
+
+</style>
+
+
+<!--[if lt IE 9]>
+<script src="shared/js/html5.js"></script>
+<script type="text/javascript" src="shared/js/ie9.js"></script>
+<![endif]-->
+<!--[if lte IE 6]>
+<script type="text/javascript" src="shared/js/png.js"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('img, .png_bg');
+</script>
+<![endif]-->
+
+</head>
+<body>
+
+<input type="button" id="btn-l" value="←"><input type="button" id="btn-r" value="→">
+<div id="box1"></div>
+
+<input type="button" id="btn-ani" value="ani">
+<div id="box2"></div>
+
+<input type="button" id="btn-show" value="show">
+<div id="box3"></div>
+
+<p id="hide">hide</p>
+
+<div id="toggle" style="margin:300px 0 0;">
+<button>toggle</button>
+<p>toggle-contents</p>
+</div>
+
+<div id="toggle2">
+<button>toggle2</button>
+<p>toggle2-contents</p>
+<p style="display:none;">toggle2-contents2</p>
+</div>
+
+<button id="slide">slide</button>
+<div id="slide-contents"></div>
+
+<button id="slide2">slide2</button>
+<div id="slide-contents2">
+<p>それは今けっしてその妨害学といったもののためが云うだた。のらくら十一月を病気人はついにその吟味ませましなどを解るて来んにも払底できるですべきながら、あまりにはありましましたな。<br>
+わがままを向くないのもまあ時分をざっとですませな。</p>
+</div>
+
+</body>
+</html>

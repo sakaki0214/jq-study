@@ -8,8 +8,26 @@
 <link rel="stylesheet" href="shared/css/style.css" media="all" />
 
 <script src="shared/js/jquery-1.9.1.min.js"></script>
-<script src="shared/js/study.js"></script>
-
+<script>
+$(function() {
+	$("#box1").click(function(){
+	$(this).css("background","rgba(0,0,0,1)");
+	});
+	
+	$(".box").hover(function(){
+		$(this).css("border","1px solid #000");
+	},
+	function(){
+		$(this).css("border","none");
+	});
+});
+</script>
+<style type="text/css">
+#box1 {
+	background:rgba(0,0,0,0.5);
+	border:1px solid #f99;
+}
+</style>
 <!--[if lt IE 9]>
 <script src="shared/js/html5.js"></script>
 <script type="text/javascript" src="shared/js/ie9.js"></script>
@@ -32,18 +50,6 @@ box2
 <div id="box3" class="box">
 box3
 </div>
-
-<div id="bg-sample1">
-bg-sample1
-<!-- /bg-sample1 --></div>
-
-<div id="bg-sample2">
-<div id="bg-sample2-inner">
-bg-sample2
-<!-- /bg-sample2-inner --></div>
-<!-- /bg-sample2 --></div>
-
-<p id="btn-sample1">btn-sample1</p>
 
 </body>
 </html>

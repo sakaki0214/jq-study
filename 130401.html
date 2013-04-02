@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html lang="ja" xmlns:og="http://ogp.me/ns#" xmlns:mixi="http://mixi-platform.com/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<meta charset="utf-8" />
+<title>STUDY</title>
+
+<link rel="shortcut icon" href="sahred/images/favicon.ico" />
+<link rel="stylesheet" href="shared/css/style.css" media="all" />
+
+<script src="shared/js/jquery-1.9.1.min.js"></script>
+<script>
+$(function() {
+	//http://www.webopixel.net/javascript/143.html
+	var i = 0;
+	var imgWidth = 121;
+	setInterval(function(){
+		if ( i >= imgWidth) i=0;
+		i += 1;
+		$("#bg-sample1").css("background-position",i+"px 0px");
+		 
+	},100);
+
+	//http://www.webopixel.net/javascript/718.html
+	var speed = 3000;
+	var bg1 = $("#bg-sample2");
+	var bg2 = $("#bg-sample2-inner");
+	cloudMove();
+	setInterval(cloudMove,6000);
+	function cloudMove(){
+		bg1.animate({backgroundPositionX:"60px"},speed)
+		.animate({backgroundPositionX:"0"},speed);
+		bg2.animate({backgroundPositionX:"120px"},speed)
+		.animate({backgroundPositionX:"0"},speed);
+	};
+	
+	//http://semooh.jp/jquery/api/effects/animate/params,+%5Bduration%5D,+%5Beasing%5D,+%5Bcallback%5D/
+	var btn1 = $("#btn-sample1");
+	btn1.click(change1);
+	function change1(){
+		btn1.animate({
+			width:"500px",
+			height:"500px",
+			opacity:"0.6"
+		},3000);
+	};
+});
+</script>
+
+<style type="text/css">
+#bg-sample1 {
+	background: url(shared/images/bg_sample1.png) repeat-x left top;
+	height:200px;
+}
+#bg-sample2 {
+	background:url(shared/images/bg_sample1.png) repeat-x left top;
+}
+#bg-sample2-inner {
+	background:url(shared/images/bg_sample2.png) repeat-x left top;
+	height:300px;
+}
+#btn-sample1 {
+	background:#999;
+	width:100px;
+	height:100px;
+	border:1px solid #333;
+}
+</style>
+
+<!--[if lt IE 9]>
+<script src="shared/js/html5.js"></script>
+<script type="text/javascript" src="shared/js/ie9.js"></script>
+<![endif]-->
+<!--[if lte IE 6]>
+<script type="text/javascript" src="shared/js/png.js"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('img, .png_bg');
+</script>
+<![endif]-->
+
+</head>
+<body>
+<div id="bg-sample1">
+bg-sample1
+<!-- /bg-sample1 --></div>
+
+<div id="bg-sample2">
+<div id="bg-sample2-inner">
+bg-sample2
+<!-- /bg-sample2-inner --></div>
+<!-- /bg-sample2 --></div>
+
+<p id="btn-sample1">btn-sample1</p>
+
+</body>
+</html>
