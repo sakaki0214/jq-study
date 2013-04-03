@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html lang="ja" xmlns:og="http://ogp.me/ns#" xmlns:mixi="http://mixi-platform.com/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<meta charset="utf-8" />
+<title>STUDY</title>
+
+<link rel="shortcut icon" href="sahred/images/favicon.ico" />
+<link rel="stylesheet" href="shared/css/style.css" media="all" />
+
+<script src="shared/js/jquery-1.9.1.min.js"></script>
+<script>
+$(function(){
+	var btnFadein = $("#btn-fadein");
+	var boxFadein = $("#box-fadein");
+	var btnFadeout = $("#btn-fadeout");
+	var boxFadeout = $("#box-fadeout");
+	var txFade = $("#tx-fade");
+	var btnL = $("#btn-go");
+	var btnStop = $("#btn-stop");
+	var btnR = $("#btn-back");
+	var boxStop = $("#box-stop");
+	var btnQueue = $("#btn-queue");
+	var bq = $("#box-queue");
+	
+	btnFadein.click(function(){
+		boxFadein.fadeIn(6000);
+	});
+	btnFadeout.click(function(){
+		boxFadeout.fadeOut("slow");
+	});
+	txFade.click(function(){
+		$(this).fadeTo("slow",0.1);
+	});
+	btnR.click(function(){
+		boxStop.animate({left:'+=100px'},2000);
+	});
+	btnStop.click(function(){
+		boxStop.stop();
+	});
+	btnL.click(function(){
+		boxStop.animate({left:'-=100px'},3000);
+	});
+	btnQueue.click(function(){
+		var n = bq.queue();
+		$("#tx-queue").text("Qieie length is:"+n.length);
+	});
+	function runIt(){
+		bq.show("slow");
+		bq.animate({marginLeft:'+=200'},2000);
+		bq.slideToggle(1000);
+		bq.slideToggle("fast");
+		bq.animate({marginLeft:'-=200'},1500);
+		bq.hide("slow");
+		bq.show(1200);
+		bq.slideUp("fast",runIt);
+	}
+	runIt();
+});
+</script>
+
+<style type="text/css">
+#box-fadein {
+	background:#9CF;
+	display:none;
+	width:50px;
+	height:50px;
+}
+#box-fadeout {
+	background:#9CF;
+	width:50px;
+	height:50px;
+}
+#box-stop {
+	position:absolute;
+	top:20px;
+	left:0;
+	background:#9CF;
+	width:50px;
+	height:50px;
+}
+#frame-box-stop {
+	position:relative;
+	height:80px;
+}
+#box-queue {
+	background:#9CF;
+	width:30px;
+	height:30px;
+}
+</style>
+
+
+<!--[if lt IE 9]>
+<script src="shared/js/html5.js"></script>
+<script type="text/javascript" src="shared/js/ie9.js"></script>
+<![endif]-->
+<!--[if lte IE 6]>
+<script type="text/javascript" src="shared/js/png.js"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('img, .png_bg');
+</script>
+<![endif]-->
+
+</head>
+<body>
+
+<button id="btn-fadein">fadein</button>
+<div id="box-fadein"></div>
+
+<button id="btn-fadeout">fadeout</button>
+<div id="box-fadeout"></div>
+
+<p id="tx-fade">click click!</p>
+
+<div id="frame-box-stop">
+<button id="btn-go">←</button>
+<button id="btn-stop">STOP</button>
+<button id="btn-back">→</button>
+<div id="box-stop"></div>
+</div>
+
+<button id="btn-queue">check queue</button>
+<span id="tx-queue"></span>
+<div id="box-queue"></div>
+
+</body>
+</html>
