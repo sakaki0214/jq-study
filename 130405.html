@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html lang="ja" xmlns:og="http://ogp.me/ns#" xmlns:mixi="http://mixi-platform.com/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<meta charset="utf-8" />
+<title>STUDY</title>
+
+<link rel="shortcut icon" href="sahred/images/favicon.ico" />
+<link rel="stylesheet" href="shared/css/style.css" media="all" />
+
+<script src="shared/js/jquery-1.9.1.min.js"></script>
+<script>
+//https://app.codegrid.net/entry/method-1
+//https://app.codegrid.net/entry/method-2
+$(function(){
+	$("#box1 button").click(function(){
+		$("#cat").css({
+			border:"5px solid #f00",
+			background:"red",
+			fontSize:"20px"
+		});
+		$("#box2 tr:odd td").css("background","red");
+		$("#box2 td").width(100);
+	});
+	$("#box1 button").click(function(){
+		$("#box3").text("ぼたもちー！");
+		$("#box4").html('<img src="shared/images/sample1.jpg" alt="">');
+		$("#box5 img").attr("src","shared/images/bg_sample1.png");
+		var src = $("#box5 img").attr("src");
+		alert(src);
+	});
+	$("#add").click(function(){
+		$("#box6 p").addClass("color");
+		$("#box6 p").height(300);
+		var h = $("#box6 p").height();
+		alert(h);
+	});
+	$("#remove").click(function(){
+		$("#box6 p").removeClass("color");
+	});
+});
+</script>
+
+<style type="text/css">
+#box1 li {
+	width:100px;
+	margin:0 0 5px;
+	border:5px solid #000;
+}
+#box2 td {
+	width:50px;
+	border:1px solid #000;
+}
+#box6 p {
+	background:#eee;
+	color:#000;
+}
+#box6 p.color {
+	background:#000;
+	color:#fff;
+}
+</style>
+
+
+<!--[if lt IE 9]>
+<script src="shared/js/html5.js"></script>
+<script type="text/javascript" src="shared/js/ie9.js"></script>
+<![endif]-->
+<!--[if lte IE 6]>
+<script type="text/javascript" src="shared/js/png.js"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('img, .png_bg');
+</script>
+<![endif]-->
+
+</head>
+<body>
+<div id="box1">
+<button>catの色を変更</button>
+<ul>
+<li>fox</li>
+<li id="cat">cat</li>
+<li>fish</li>
+</ul>
+</div>
+
+<div id="box2">
+<table>
+<tr>
+<td>a</td><td>a</td><td>a</td><td>a</td>
+</tr>
+<tr>
+<td>a</td><td>a</td><td>a</td><td>a</td>
+</tr>
+<tr>
+<td>a</td><td>a</td><td>a</td><td>a</td>
+</tr>
+<tr>
+<td>a</td><td>a</td><td>a</td><td>a</td>
+</tr>
+</table>
+</div>
+
+<div id="box3">
+たなから
+</div>
+
+<div id="box4">
+スイーツ
+</div>
+
+<div id="box5">
+<button>show src</button>
+<img src="shared/images/sample1.jpg" alt="">
+</div>
+
+<div id="box6">
+<button id="add">addClass</button>
+<button id="remove">removeClass</button>
+<p>ここにclassつけたり消したり</p>
+</div>
+</body>
+</html>
