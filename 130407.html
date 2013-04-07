@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="ja" xmlns:og="http://ogp.me/ns#" xmlns:mixi="http://mixi-platform.com/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<meta charset="utf-8" />
+<title>STUDY</title>
+
+<link rel="shortcut icon" href="sahred/images/favicon.ico" />
+<link rel="stylesheet" href="shared/css/style.css" media="all" />
+
+<script src="shared/js/jquery-1.9.1.min.js"></script>
+<script>
+//http://5509.me/log/jquery-animate-que-tips
+$(function(){
+	var box = $('.box div');
+	box.hover(function(){
+		$(this).animate({
+			opacity:.5
+		} , {
+			duration:200,
+			queue:false
+		})
+	},function(){
+		$(this).animate({
+			opacity:1
+		} , {
+			duration:200,
+			queue:false
+		});
+	});
+});
+</script>
+
+<style type="text/css">
+.box div {
+	float:left;
+	padding:15px;
+	text-align:center;
+}
+.box div:nth-child(1){
+	background:#333;
+}
+.box div:nth-child(2){
+	background:#666;
+}
+.box div:nth-child(3){
+	background:#999;
+}
+</style>
+
+
+<!--[if lt IE 9]>
+<script src="shared/js/html5.js"></script>
+<script type="text/javascript" src="shared/js/ie9.js"></script>
+<![endif]-->
+<!--[if lte IE 6]>
+<script type="text/javascript" src="shared/js/png.js"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('img, .png_bg');
+</script>
+<![endif]-->
+
+</head>
+<body>
+
+<div class="box">
+<div>button</div>
+<div>button</div>
+<div>button</div>
+</div>
+
+</body>
+</html>
