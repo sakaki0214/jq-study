@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html lang="ja" xmlns:og="http://ogp.me/ns#" xmlns:mixi="http://mixi-platform.com/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<meta charset="utf-8" />
+<title>STUDY</title>
+
+<link rel="shortcut icon" href="sahred/images/favicon.ico" />
+<link rel="stylesheet" href="shared/css/style.css" media="all" />
+
+<script src="shared/js/jquery-1.9.1.min.js"></script>
+<script>
+//https://app.codegrid.net/entry/method-4
+$(function(){
+	var hoge = $("#hoge");
+	var fuge = $("#fuge");
+	var div = $('<div>新しいdiv</div>');
+	$("#box1 button").click(function(){
+	//hoge.append(fuge);
+	fuge.appendTo(hoge);
+	fuge.append(div);
+	});
+
+	//https://app.codegrid.net/entry/event-basic
+	var btn = $("#box2 button");
+	btn.click(function(){
+		$("#box2 #result1").text("クリックされたよ");
+	});
+	$("#box3").mouseenter(function(){
+			$("#box3 p").text("マウスがのった！");
+	});
+	$("#box4").mouseleave(function(){
+			$("#box4 p").text("マウスがおりた");
+	});
+	$("#input").focus(function(){
+			$("#box5 p").text("フォーカスされた");
+	});
+	$("#input").blur(function(){
+			$("#box5 p").text("フォーカスが外れた");
+	});
+	//https://app.codegrid.net/entry/event-this
+	$("#box6 div").click(function(){
+		alert("click");
+		$(this).css({
+			background:"red",
+			color:"#fff",
+			fontSize:"18px"
+		});
+	});
+	function clickAlert(){
+		$("#box7 p").each(function(){
+				var text = $(this).text();
+				alert(text);
+		});
+	};
+	$("#box7 button").click(clickAlert);
+
+	//https://app.codegrid.net/entry/rollover
+	var btn = $("#box8 a");
+	btn.each(function(){
+		var a = $(this);
+		var img = a.find('img');
+		var src_off = img.attr('src');
+		var src_on =src_off.replace('_off','_on');
+		$("<img />").attr("src",src_on);
+			a.bind('mouseenter focus',function(){
+				img.attr('src',src_on);
+			});
+			a.bind('mouseleave blur',function(){
+				img.attr('src',src_off);
+			});
+		});
+});
+</script>
+
+<style type="text/css">
+#hoge {
+	border:5px solid #ccc;
+}
+#fuge {
+	border:5px solid #eee;
+}
+#box2 {
+	background:#eee;
+}
+#box3 {
+	background:#ccc;
+}
+#box4 {
+	background:#999;
+}
+#box6 div {
+	background:#eee;
+	width:100px;
+	margin:0 0 5px;
+	padding:5px;
+	text-align:center;
+}
+</style>
+
+
+<!--[if lt IE 9]>
+<script src="shared/js/html5.js"></script>
+<script type="text/javascript" src="shared/js/ie9.js"></script>
+<![endif]-->
+<!--[if lte IE 6]>
+<script type="text/javascript" src="shared/js/png.js"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('img, .png_bg');
+</script>
+<![endif]-->
+
+</head>
+<body>
+<div id="box1">
+<button>ボタン</button>
+<div id="hoge">hoge</div>
+<div id="fuge">fuge</div>
+</div>
+
+<div id="box2">
+<button>ボタン</button>
+<p id="result1">クリックされてない</p>
+</div>
+
+<div id="box3">
+<p>まだマウスはのってない</p>
+</div>
+
+<div id="box4">
+<p>まだマウスはおりていない</p>
+</div>
+
+<div id="box5">
+<p>まだフォーカスされてない</p>
+<input type="text" id="input">
+</div>
+
+<div id="box6">
+<div>button</div>
+<div>button</div>
+<div>button</div>
+<div>button</div>
+<div>button</div>
+<div>button</div>
+<div>button</div>
+</div>
+
+<div id="box7">
+<button>ボタン</button>
+<p>あいうえお</p>
+<p>かきくけこ</p>
+<p>さしすせそ</p>
+</div>
+
+<div id="box8">
+<ul>
+<li><a href="#"><img src="shared/images/btn1_off.jpg" alt=""></a></li>
+<li><a href="#"><img src="shared/images/btn2_off.jpg" alt=""></a></li>
+<li><a href="#"><img src="shared/images/btn3_off.jpg" alt=""></a></li>
+</ul>
+</div>
+
+</body>
+</html>
