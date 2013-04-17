@@ -15,25 +15,20 @@ $(function(){
 	var modalIn = $("#box2");
 	var close = $(".btn-close");
 	link.click(function(){
-		modal.css({
-			display:"block",
-		});
-		modalIn.fadeIn("fast");
+		modal.css("visibility","visible");
 	});
 	modal.click(function(){
-		modalIn.fadeOut("fast");
-		modal.fadeOut("fast");
+		modal.css("visibility","hidden");
 	});
 	close.click(function(){
-		modalIn.fadeOut("fast");
-		modal.fadeOut("fast");
+		modal.css("visibility","hidden");
 	});
 });
 </script>
 
 <style type="text/css">
 #frame-modal {
-	display:none;
+	visibility:hidden;
 	background:rgba(0,0,0,0.7);
 	position:fixed;
 	top:0;
@@ -41,8 +36,7 @@ $(function(){
 	width:100%;
 	height:100%;
 }
-#box2 {
-	display:none;
+#frame-modal #box2 {
 	background:#fff;
 	position:absolute;
 	top:100px;
@@ -51,7 +45,7 @@ $(function(){
 	width:380px;
 	padding:20px;
 }
-#box2 .btn-close {
+#frame-modal #box2 .btn-close {
 	position:absolute;
 	top:5px;
 	right:10px;
@@ -85,12 +79,11 @@ DD_belatedPNG.fix('img, .png_bg');
 
 
 <div id="frame-modal">
-</div>
-
 <div id="box2">
 <h2>modal</h2>
 <p>テキストテキストテキストテキストテキストテキスト</p>
 <p><a href="#" class="btn-close">×</a></p>
+</div>
 </div>
 
 </body>
