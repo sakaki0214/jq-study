@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html lang="ja" xmlns:og="http://ogp.me/ns#" xmlns:mixi="http://mixi-platform.com/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<head>
+<meta charset="utf-8" />
+<title>STUDY</title>
+
+<link rel="shortcut icon" href="sahred/images/favicon.ico" />
+<link rel="stylesheet" href="shared/css/style.css" media="all" />
+
+<script src="shared/js/jquery-1.9.1.min.js"></script>
+<script>
+$(function(){
+	var adTtl = $("#box1 h2");
+	var adContents = $("#box1 .contents");
+	adTtl.click(function(){
+		$(this).next().toggle("fast");
+	});
+	
+	//http://coder.blog.uhuru.co.jp/js/easy_accordion2
+	var adHead = $(".accordion_head");
+	adHead.click(function(){
+		$(".accordion_head").next().slideUp();
+		$(this).next().slideToggle();
+	}).next().hide();
+	$(".accordion_head:first").next().show();
+	
+	//zudo book
+	$('#box-each .animal').each(function(){
+		var name = $(this).text();
+		alert(name);
+		alert($(this).width());
+		alert($(this).height());
+		alert($(this).css('font-size'));
+	});
+	//preload
+	$('<img />').attr('src','shared/images/sample.jpg');
+});
+</script>
+
+<style type="text/css">
+h2 {
+	border:1px solid #000;
+	background:#eee;
+	width:200px;
+}
+.contents {
+	display:none;
+}
+#box2 {
+	width:200px;
+	margin:0 0 10px;
+}
+#box2 .accordion_head {
+	cursor:pointer;
+	background:#ccc;
+	border-top:1px solid #fff;
+	border-bottom:1px solid #bbb;
+	line-height:1;
+	padding:5px 10px;
+}
+#box2 li ul li a {
+	border-bottom:1px solid #000;
+	display:block;
+	text-decoration:none;
+	background:#333;
+	color:#fff;
+	padding:5px 15px;
+	font-size:90%;
+}
+#box-each {
+	border:1px solid #000;
+	width:200px;
+	margin:0 0 10px;
+}
+</style>
+
+
+<!--[if lt IE 9]>
+<script src="shared/js/html5.js"></script>
+<script type="text/javascript" src="shared/js/ie9.js"></script>
+<![endif]-->
+<!--[if lte IE 6]>
+<script type="text/javascript" src="shared/js/png.js"></script>
+<script type="text/javascript">
+DD_belatedPNG.fix('img, .png_bg');
+</script>
+<![endif]-->
+
+</head>
+<body>
+<div id="box1">
+<h1>アコーディオン</h1>
+<h2>2013</h2>
+<div id="contents-2013" class="contents">
+2013年の内容が入ります。
+</div>
+<h2>2012</h2>
+<div id="contents-2012" class="contents">
+2012年の内容が入ります。
+</div>
+<h2>2011</h2>
+<div id="contents-2011" class="contents">
+2011年の内容が入ります。
+</div>
+</div>
+
+<div id="box2">
+<ul>
+<li>
+<div class="accordion_head">Home</div>
+<ul>
+<li><a href="#">sample1</a></li>
+<li><a href="#">sample2</a></li>
+<li><a href="#">sample3</a></li>
+</ul>
+</li>
+<li>
+<div class="accordion_head">Company</div>
+<ul>
+<li><a href="#">sample1</a></li>
+<li><a href="#">sample2</a></li>
+<li><a href="#">sample3</a></li>
+</ul>
+</li>
+<li>
+<div class="accordion_head">Blog</div>
+<ul>
+<li><a href="#">sample1</a></li>
+<li><a href="#">sample2</a></li>
+<li><a href="#">sample3</a></li>
+</ul>
+</li>
+<li>
+<div class="accordion_head">Contact</div>
+<ul>
+<li><a href="#">sample1</a></li>
+<li><a href="#">sample2</a></li>
+<li><a href="#">sample3</a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<div id="box-each">
+<div class="animal">cat</div>
+<div class="animal">dog</div>
+<div class="animal">turtle</div>
+<div class="animal">mouse</div>
+</div>
+
+</body>
+</html>
