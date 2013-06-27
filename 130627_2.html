@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScriptで作る「誕生日診断」</title>
+<style>
+	input {
+		font-size:20px;
+	}
+</style>
+</head>
+<body>
+
+<h1>誕生日診断</h1>
+<p>誕生日：<input type="text" name="birthday" id="birthday" placeholder="1984-12-05"></p>
+<p><input type="button" value="計算" onclick="getAge();"></p>
+<script>
+  function getAge() {
+    var birthday = document.getElementById('birthday').value;
+    var d1 = new Date(birthday);
+    var d2 = new Date();
+    var diff = d2.getTime() - d1.getTime();
+    var daysPast = Math.floor(diff / (1000 * 60 * 60 * 24));
+    alert(daysPast + '日経過');
+  }
+</script>
+
+</body>
+</html>
