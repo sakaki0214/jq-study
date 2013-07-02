@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScriptで作る「5秒でキメろ！」</title>
+<style>
+    #sec {
+     font-size:128px;
+    }
+</style>
+</head>
+<body>
+
+<h1>5秒でキメろ！</h1>
+<input type="button" value="Start!" onclick="start();">
+<input type="button" value="Stop!" onclick="stop();">
+<p id="result"></p>
+    <script>
+        var start;
+        var stop;
+        var FIVE_SECOND = 5 * 1000;
+        function start() {
+            //start時刻を取得
+            start = new Date().getTime();
+            console.log(start);
+            
+        }
+        function stop() {
+            //stop時刻を取得
+            stop = new Date().getTime();
+            console.log(stop);
+            //差を算出して、5秒とくらべてどうだ？
+            var diff = FIVE_SECOND-(stop-start);
+            //結果を表示
+            var e = document.getElementById('result');
+            if(diff == 0) {
+                e.innerHTML = 'ぴったし！すごい！';
+            } else if(diff > 0) {
+                e.innerHTML = (diff / 1000) + '秒、速い！';
+            } else {
+                e.innerHTML = (diff / 1000) + '秒、遅い！';
+            }
+        }
+
+    </script>
+
+</body>
+</html>

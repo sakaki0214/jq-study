@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScriptで作る「ストップウォッチ」</title>
+<style>
+    #sec {
+     font-size:128px;
+    }
+</style>
+</head>
+<body>
+
+<h1>ストップウォッチ</h1>
+<div id="sec">0.00</div>
+<input type="button" value="Start!" id="run">
+<input type="button" value="Stop!" id="stop">
+<input type="button" value="Reset!" id="reset">
+<script>
+    (function(){
+    var startTime,
+        stopTime,
+        running = false,
+        timerID;
+    
+    document.getElementById('run').onclick=function(){
+      run();  
+    };
+     document.getElementById('stop').onclick=function(){
+      stop();  
+    };
+    document.getElementById('reset').onclick=function(){
+      reset();  
+    };
+    
+    function run() {
+        
+        if(running){
+            return;   
+        }
+        if(stopTime) {
+            startTime = startTime + (new Date()).getTime() - stopTime;   
+        }
+        if(!startTime){
+            startTime = (new Date()).getTime();
+        }
+        running = true;
+        timer();
+    }
+    
+    function timer() {
+        document.getElementById('sec').innerHTML = (((new Date()).getTime()-startTime)/1000).toFixed(2);
+        timerID = setTimeout(function(){
+           timer(); 
+        },100);
+    }
+    function stop() {
+        clearTimeout(timerID);
+        running = false;
+        stopTime = (new Date()).getTime();
+        
+    }
+    function reset() {
+        if(running) {
+            return;   
+        }
+        startTime = undefined;
+        document.getElementById('sec').innerHTML = '0.00';
+    }
+    })();
+</script>
+
+</body>
+</html>
