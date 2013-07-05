@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JavaScriptで作る「残り文字数チェッカー」</title>
+<style>
+    #memo {
+     width:500px;
+        height:150px;
+    }
+    .warning {
+        color:red;   
+    }
+</style>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+
+<h1>残り文字数チェッカー</h1>
+<textarea id="memo"></textarea>
+<div id="count"></div>
+    
+<script>
+$(function(){
+        var LIMIT = 30;
+        var WARNING = 10;
+        var count = $('#count');
+        
+        count.text(LIMIT);
+            
+        function　countChars(textarea) {
+            var remaining = LIMIT - textarea.val().length; 
+            count.text(remaining);
+            if (remaining <= WARNING) {
+                count.addClass('warning');
+            } else {
+                count.removeClass('warning');
+            }
+        }
+        $('#memo').keyup(function(){
+            countChars($(this));
+        });
+});
+</script>
+</body>
+</html>
