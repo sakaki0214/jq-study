@@ -1,0 +1,344 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css animation</title>
+</head>
+<style>
+//http://design.kayac.com/topics/2010/09/css3animation-tutorial.php
+h2 {
+  margin:0 0 5px;
+  color:#666;
+  font-size:12px;
+}
+p {
+  margin:0 0 15px;
+}
+@-webkit-keyframes animation1 {
+  0% {
+    bottom:0;
+  }
+  70% {
+    bottom:0;
+  }
+  85% {
+    bottom:7px;
+  }
+  100% {
+    bottom:0;
+  }
+  
+}
+p {
+  display:inline-block;
+  padding:5px;
+  background:#E264BB;
+  color:#fff;
+}
+.sample1 span {
+  position:relative;
+  bottom:0;
+  -webkit-animation-name:animation1;/*定義したアニメーション名*/
+  -webkit-animation-duration:1.5s;/*1ループの時間*/
+  -webkit-animation-timing-function:ease-out;/*アニメーションの変化度合い*/
+  -webkit-animation-iteration-count:infinite;/*無限ループ}*/
+}
+.sample1 .tx2 {
+  -webkit-animation-delay:0.2s;
+}
+.sample1 .tx3 {
+  -webkit-animation-delay:0.4s;
+}
+
+@-webkit-keyframes animation2 {
+  0% {
+    -webkit-transform:scale(1);
+  }
+  70% {
+    -webkit-transform:scale(1);
+  }
+  85% {
+    -webkit-transform:scale(1.5);
+  }
+  100% {
+    -webkit-transform:scale(1);
+  }
+}
+.sample2 {
+  padding:5px;
+}
+.sample2 span {
+  -webkit-animation-duration:1.5s;
+  -webkit-animation-timing-function:ease-in-out;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-animation-name:animation2;
+  -webkit-transform-origin:middle center;
+  -webkit-transform:scale(1);
+  display:inline-block;
+}
+.sample2 .tx2 {
+  -webkit-animation-delay:0.2s;
+}
+.sample2 .tx3 {
+  -webkit-animation-delay:0.4s;
+}
+@-webkit-keyframes animation3 {
+  0% {
+    -webkit-transform:rotateX(0);
+  }
+  42% {
+    -webkit-transform:rotateX(0);
+  }
+  50% {
+    -webkit-transform:rotateX(180deg);
+  }
+  57% {
+    -webkit-transform:rotateX(0);
+  }
+  100% {
+    -webkit-transform:rotateX(0);
+  }
+}
+.sample3 span {
+  -webkit-animation-duration:4s;
+  -webkit-animation-timing-function:ease-out;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-animation-name:animation3;
+  display:inline-block;
+  -webkit-transform-origin:middle center;
+  -webkit-transform:scale(1);
+  position:relative;
+  bottom:0;
+}
+.sample3 .tx2 {
+  -webkit-animation-delay:0.2s;
+}
+.sample3 .tx3 {
+  -webkit-animation-delay:0.4s;
+}
+.animation2 {
+  text-align:center;
+  display:inline-block;
+  padding:.35em 1em;
+  background:#54bb00;
+  color:#fff;
+  font-weight:bold;
+  letter-spacing:2px;
+  border-radius:2px;
+  line-height:1;
+}
+.animation2 span {
+  line-height:1;
+}
+@-webkit-keyframes animation4 {
+  0% {
+    -webkit-transform:scale(1);
+  }
+  70% {
+    -webkit-transform:scale(1);
+  }
+  85% {
+    -webkit-transform:scale(1.4);
+  }
+  100% {
+    -webkit-transform:scale(1);
+  }
+}
+.sample4 span {
+  display:block;
+  -webkit-animation-name:animation4;
+  -webkit-animation-duration:1.5s;
+  -webkit-animation-timing-function:ease-in-out;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-transform-origin:middle center;
+  -webkit-transform:scale(1);
+}
+@-webkit-keyframes animation5 {
+  0% {
+    background:#54bb00;
+  }
+  30% {
+    background:#54bb00;
+  }
+  50% {
+    background:#98f139;
+    -webkit-box-shadow:0 0 7px #98f139;
+  }
+  70% {
+    background:#54bb00;
+  }
+  100% {
+    background:#54bb00;
+  }
+}
+.sample5 {
+  -webkit-animation-duration:4s;
+  -webkit-animation-timing-function:ease-in-out;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-transform-origin:middle center;
+  -webkit-animation-name:animation5;
+  background:#54bb00;
+}
+@-webkit-keyframes animation6 {
+  0% {
+    -webkit-transform:rotate(0deg);
+    bottom:0;
+  }
+  50% {
+    -webkit-transform:rotate(0deg);
+    bottom:0;
+  }
+  60% {
+    -webkit-transform:rotate(5deg);
+    bottom:5px;
+  }
+  70% {
+    -webkit-transform:rotate(-5deg);
+  }
+  80% {
+    -webkit-transform:rotate(4deg);
+
+  }
+  90% {
+    -webkit-transform:rotate(-3deg);
+
+  }
+  100% {
+    -webkit-transform:rotate(0deg);
+
+  }
+}
+.sample6 {
+  position:relative;
+  bottom:0;
+  -webkit-animation-duration:1.5s;
+  -webkit-animation-timing-function:ease-in-out;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-transform-origin:middle center;
+  -webkit-animation-name:animation6;
+  -webkit-transform:rotate(0deg);
+}
+.sample7 {
+  overflow:hidden;
+}
+@-webkit-keyframes animation7 {
+  0% {
+    left:3em;
+  }
+  100% {
+    left:-6em;
+  }
+}
+.sample7 span {
+  -webkit-animation-duration:3s;
+  -webkit-animation-timing-function:linear;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-transform-origin:middle center;
+  -webkit-animation-name:animation7;
+  position:relative;
+  left:0;
+}
+@-webkit-keyframes animation8 {
+  0% {
+    -webkit-transform:scale(1,1);
+  }
+  48% {
+    -webkit-transform:scale(1,1);
+  }
+  50% {
+    -webkit-transform:scale(1.1,0.9);
+  }
+  53% {
+    -webkit-transform:scale(0.9,1.1)translate(0,-5px);
+  }
+  57.5% {
+    -webkit-transform:scale(1,1)translate(0,-3px);
+  }
+  59% {
+    -webkit-transform:scale(1,1)translate(0,0px);;
+  }
+  100% {
+    -webkit-transform:scale(1,1);
+  }
+}
+.sample8 {
+  -webkit-animation-duration:2s;
+  -webkit-animation-timing-function:ease-in;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-transform-origin:bottom center;
+  -webkit-animation-name:animation8;
+}
+@-webkit-keyframes animation9 {
+  0% {
+    -webkit-transform:rotateX(0);
+  }
+  42% {
+    -webkit-transform:rotateX(0);
+  }
+  50% {
+    -webkit-transform:rotateX(180deg);
+  }
+  57% {
+    -webkit-transform:rotateX(0);
+  }
+  100% {
+    -webkit-transform:rotateX(0);
+  }
+}
+.sample9 {
+  -webkit-animation-duration:3s;
+  -webkit-animation-timing-function:ease-in;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-animation-name:animation9;
+}
+@-webkit-keyframes animation10 {
+  0% {
+    -webkit-box-shadow:0 1em 1em rgba(0,0,0,0.2);
+    top:0;
+  }
+  50% {
+    -webkit-box-shadow:0 1.3em 1.2em rgba(0,0,0,0.15);
+    top:-5px;
+  }
+  100% {
+    -webkit-box-shadow:0 1em 1em rgba(0,0,0,0.2);
+    top:0;
+  }
+}
+.sample10 {
+  -webkit-box-shadow:0 1em 1em rgba(0,0,0,0.2);
+  -webkit-animation-duration:2.5s;
+  -webkit-animation-timing-function:ease-in;
+  -webkit-animation-iteration-count:infinite;
+  -webkit-transform:rotateX(0);
+  -webkit-animation-name:animation10;
+  position:relative;
+  top:0;
+}
+</style>
+<body>
+
+<h1>css animation</h1>
+<h2>sample1</h2>
+<p class="sample1"><span class="tx1">N</span><span class="tx2">E</span><span class="tx3">W</span></p>
+<h2>sample2</h2>
+<p class="sample2"><span class="tx1">N</span><span class="tx2">E</span><span class="tx3">W</span></p>
+<h2>sample3</h2>
+<p class="sample3"><span class="tx1">N</span><span class="tx2">E</span><span class="tx3">W</span></p>
+
+<h2>sample4</h2>
+<p class="animation2 sample4"><span>NEW</span></p>
+<h2>sample5</h2>
+<p class="animation2 sample5"><span>NEW</span></p>
+<h2>sample6</h2>
+<p class="animation2 sample6"><span>NEW</span></p>
+<h2>sample7</h2>
+<p class="animation2 sample7"><span>NEW</span></p>
+<h2>sample8</h2>
+<p class="animation2 sample8"><span>NEW</span></p>
+<h2>sample9</h2>
+<p class="animation2 sample9"><span>NEW</span></p>
+<h2>sample10</h2>
+<p class="animation2 sample10"><span>NEW</span></p>
+</body>
+</html>
