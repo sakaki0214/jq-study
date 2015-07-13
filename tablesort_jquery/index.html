@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+<title>jQuery Table Sort</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+$(function(){
+
+  var sortOrder = 1; //1:昇順、-1:降順
+  var col = $(this).index(); //0,1,…
+
+  //列をクリックしたら
+  $('.sort').click(function(){
+    ver type = $(this).data('type');// string,integerがはいってくる
+
+    var $rows = $('tbody>tr');
+
+    $rows.sort(function(a,b) {
+      return compare(a, b, type, col) * sortOrder;
+    });
+
+    $('tbody').empty().append($rows);
+
+    sortOrder *= -1;
+  });
+
+  function compare(a, b, type, col) {
+    var _a = $(a).find('td').eq(col).text() * 1;
+    var _b = $(b).find('td').eq(col).text() * 1;
+
+    if (type == "string") {
+
+    } else {
+      _a *= 1;
+      _b *= 1;
+      return _a - _b;
+    }
+  }
+});
+</script>
+</head>
+<body>
+
+<table>
+  <thead>
+    <tr>
+      <th class="sort" data-type="string">名前</td>
+      <th class="sort" data-type="integer">点数</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>taguchi</td>
+      <td>325</td>
+    </tr>
+    <tr>
+      <td>fkoji</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>dotinstall</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <td>takahashi</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
