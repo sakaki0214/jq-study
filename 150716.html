@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+<title>jQuery Slideshow</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<style>
+.thumbnail {
+  width:125px;
+  height:83px;
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+$(function(){
+});
+
+var count = function(initNum) {
+  var localNum = initNum;
+  return {
+    getNum: function(){
+      return localNum++;
+    },
+    methodHoge: function() {
+
+    }
+  }
+};
+
+var counter1 = count(1);
+console.log(counter1.getNum());
+console.log(counter1.getNum());
+console.log(counter1.getNum());
+
+var counter2 = count(1999);
+console.log(counter2.getNum());
+console.log(counter2.getNum());
+console.log(counter2.getNum());
+
+</script>
+</head>
+<body>
+
+
+</body>
+</html>
