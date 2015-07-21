@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+<title>jQuery Slideshow</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<style>
+.thumbnail {
+  width:125px;
+  height:83px;
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+//http://memocarilog.info/jquery/7228
+// window.onload = function(){
+//   var box = document.getElementById('box');
+//   var boxOpa;
+//   box.style.opacity = 1;
+//
+//   function fadeOut(){
+//     var boxOpa = parseFloat(box.style.opacity);
+//     var opaValue = .05;
+//     var limit = 0.5;
+//
+//     if(boxOpa > limit) {
+//       boxOpa = boxOpa - opaValue;
+//       box.style.opacity = boxOpa;
+//       requestAnimationFrame(fadeOut);
+//     }
+//   }
+//
+//   function fadeIn(){
+//     var boxOpa = parseFloat(box.style.opacity);
+//     var opaValue = .05;
+//
+//     if(boxOpa < 1){
+//       boxOpa = boxOpa + opaValue;
+//       box.style.opacity = boxOpa;
+//       requestAnimationFrame(fadeIn);
+//     }
+//   }
+//
+//   box.onmouseover = function(){
+//     fadeOut();
+//   }
+//   box.onmouseout = function(){
+//     fadeIn();
+//   }
+// }
+
+window.onload = function(){
+  var box = document.getElementById('box');
+  var limit = 0.5;
+
+  var fadeOut_timer;
+  function fadeOutTimer(opaValue){
+    if(opaValue > limit && opaValue > 0.05){
+      box.style.filter = "alpha(opacity:" + (opaValue*100) + ")";
+      box.style.opacity = opaValue;
+      opaValue = opaValue - 0.05;
+      fadeOut_timer = setTimeout(function(){
+        fadeOutTimer(opaValue);
+      }, 10);
+    } else {
+      clearTimeout(fadeIn_timer);
+      box.style.filter = "alpha(opacity:" + (limit*100) + ")";
+      box.style.opacity = limit;
+    }
+  }
+
+  var fadeIn_timer;
+  function fadeInTimer(opaValue){
+    if(opaValue < 1) {
+      box.style.filter = "alpha(opacity:" + (opaValue*100) + ")";
+      box.style.opacity = opaValue;
+      opaValue = opaValue + 0.05;
+      fadeIn_timer = setTimeout(function(){
+        setTimeout(function(){
+          fadeInTimer(opaValue);
+        },10);
+      });
+    } else {
+      clearTimeout(fadeIn_timer);
+      box.style.filter = "alpha(opacity:100)";
+      box.style.opacity = 1;
+    }
+  }
+
+  box.onmouseover = function(){
+    clearTimeout(fadeIn_timer);
+    var opaValue = 1;
+    fadeOutTimer(opaValue);
+  }
+
+  box.onmouseout = function(){
+    clearTimeout(fadeOut_timer);
+    var opaValue = limit;
+    fadeInTimer(opaValue);
+  }
+}
+</script>
+<style>
+#box{
+  margin:30px 30px 20px;
+  width: 150px;
+  height: 100px;
+  background:#FF675C;
+  color:#fff;
+  text-align:center;
+  font-size:1.2em;
+  font-family: 'Open Sans', sans-serif;
+  line-height:100px;
+  opacity:1;
+}
+
+p{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.8em;
+}
+</style>
+</head>
+<body>
+
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+
+  <div id="box">FadeIn/Out</div>
+
+  <p>マウスオーバー時 CSS3 の transition プロパティと opacity プロパティの変化でフェードイン・アウトします。</p>
+
+</body>
+</html>

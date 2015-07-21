@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="utf-8">
+<title>jQuery Slideshow</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<style>
+.thumbnail {
+  width:125px;
+  height:83px;
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+$(function(){
+  var thisObj = $('#sample');
+  //親ボックスのオブジェクトをつくる
+  if(thisObj.length == 0)return false;
+  var item = thisObj[0];
+
+  var liWidth = $('>li',item).width()
+  var liHeight = $('>li',item).height()
+
+  var ulWidth = thisObj.width();
+  var ulHeight = thisObj.height();
+
+  var offset_x = liWidth - ulWidth;
+  var offset_y = liHeight - ulHeight;
+
+  var itemLi = thisObj.find('li');
+
+  thisObj.mousemove(function(e){
+    //X方向
+    var cursorX = e.clientX - thisObj.offset().left;
+    (cursorX > ulWidth) ? cursorX = ulWidth : cursorX;
+    var centerX = (cursorX / ulWidth * offset_x) - offset_x/2;
+    //Y方向
+    var cursorY = e.clientY - thisObj.offset().top + $('html').scrollTop();
+    (cursorY > ulHeight) ? cursorY = ulHeight : cursorY;
+    var centerY = (cursorY / ulHeight * offset_y) - offset_y/2;
+
+    for ( var i = 1; i<= itemLi.length; i++){
+      //x方向
+      var liLeft = parseFloat($(itemLi[i-1]).css('left'));
+      var newLeft = centerX * (i / itemLi.length) - offset_x / 2;
+      $(itemLi[i-1]).css('left',(newLeft + liLeft*5) / 6);
+      //y方向
+      var liTop = parseFloat($(itemLi[i-1]).css('top'));
+      var newTop = centerY * (i / itemLi.length) - offset_y / 2;
+      $(itemLi[i-1]).css('top',(newTop + liTop*5) / 6);
+    }
+  });
+});
+</script>
+<style>
+#sample {
+    /* jQueryに必要な指定 */
+    position: relative;
+    overflow: hidden;
+    margin:0 auto 50px ;
+    width: 700px;
+    height: 450px;
+
+    /* 背景とフレームの指定 */
+    outline: solid 2px #ddd;
+    border: solid 20px #fff;
+    background: url(images/bg.jpg);
+    box-shadow: 1px 1px 50px RGBA(0,0,0, .2) inset ;
+}
+#sample li{
+    position: absolute;
+    top:-25px;
+    left: -50px;
+    width: 800px;
+    height: 500px;
+}
+/* くさ1 */
+#sample li:nth-child(1) img{
+    position: absolute;
+    bottom:0;
+}
+/* はな */
+#sample li:nth-child(2) img{
+    position: absolute;
+    bottom:50px;
+}
+/* くさ2 */
+#sample li:nth-child(3) img{
+    position: absolute;
+    bottom: -30px;
+}
+/* シャボン玉 */
+#sample li:nth-child(4) img{
+    position: absolute;
+    bottom: 150px;
+    opacity: 0.4;
+}
+</style>
+</head>
+<body>
+  <ul id="sample">
+    <li><img src="images/kusa1.png" alt="くさ"></li>
+    <li><img src="images/hana.png" alt="はな"></li>
+    <li><img src="images/kusa2.png" alt="くさ"></li>
+    <li><img src="images/syabondama.png" alt="シャボン玉"></li>
+</ul>
+</body>
+</html>
