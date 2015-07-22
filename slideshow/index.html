@@ -36,6 +36,7 @@ $(function(){
   var img;
   var timer;
   var currentNum = 0;
+  var nowPlaying = false;
 
   for ( var i = 0; i < files.length; i++) {
     img = $('<img>').attr('src', files[i]).addClass("thumbnail");
@@ -72,13 +73,16 @@ $(function(){
     $('#next').click();
     timer = setTimeout(function(){
       autoPlay();
-    },1000);
+    },2000);
   }
   $('#play').click(function(){
+    if(nowPlaying) return;
+    nowPlaying = true;
     autoPlay();
   });
-  $('$stop').click(function(){
+  $('#stop').click(function(){
     clearTimeout(timer);
+    nowPlaying = false;
   });
 });
 </script>
